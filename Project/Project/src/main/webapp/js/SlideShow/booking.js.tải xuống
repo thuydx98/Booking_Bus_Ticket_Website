@@ -1,0 +1,875 @@
+﻿var Booking = {
+    idCb: '#Cb_ChuyenXe',
+    idCbtram: '#Cb_Tram',
+    idCbtramxuong: '#Cb_TramXuong',
+    SoLuongVe: 0,
+    guid: null,
+    isLoading: false,
+    SoDoXe: {
+        '1': '<div class="seating-chart">\n<div class="row">\n<div class="col-2 driver">\n<div>Lái xe</div>\n</div>\n<div class="col-1">&nbsp;</div>\n<div class="col-2 door">\n<div>Cửa lên</div>\n</div>\n</div>\n<div class="row">\n<div class="col-1">\n<div class="seat" data-code="A1"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="A2"></div>\n</div>\n<div class="col-1">&nbsp;</div>\n<div class="col-1">\n<div class="seat" data-code="B1"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="B1"></div>\n</div>\n</div>\n<div class="row">\n<div class="col-1">\n<div class="seat" data-code="A3"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="A4"></div>\n</div>\n<div class="col-1">&nbsp;</div>\n<div class="col-1">\n<div class="seat" data-code="B3"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="B4"></div>\n</div>\n</div>\n<div class="row">\n<div class="col-1">\n<div class="seat" data-code="A5"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="A6"></div>\n</div>\n<div class="col-1">&nbsp;</div>\n<div class="col-1">\n<div class="seat" data-code="B5"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="B6"></div>\n</div>\n</div>\n<div class="row">\n<div class="col-1">\n<div class="seat" data-code="A7"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="A8"></div>\n</div>\n<div class="col-1">&nbsp;</div>\n<div class="col-1">\n<div class="seat" data-code="B7"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="B8"></div>\n</div>\n</div>\n<div class="row">\n<div class="col-1">\n<div class="seat" data-code="A9"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="A10"></div>\n</div>\n<div class="col-1">&nbsp;</div>\n<div class="col-1">\n<div class="seat" data-code="B9"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="B10"></div>\n</div>\n</div>\n<div class="row">\n<div class="col-1">\n<div class="seat" data-code="A11"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="A12"></div>\n</div>\n<div class="col-1">&nbsp;</div>\n<div class="col-1">\n<div class="seat" data-code="B11"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="B12"></div>\n</div>\n</div>\n<div class="row">\n<div class="col-1">\n<div class="seat" data-code="A13"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="A14"></div>\n</div>\n<div class="col-1">&nbsp;</div>\n<div class="col-1">\n<div class="seat" data-code="B13"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="B14"></div>\n</div>\n</div>\n<div class="row">\n<div class="col-1">\n<div class="seat" data-code="A15"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="A16"></div>\n</div>\n<div class="col-1">&nbsp;</div>\n<div class="col-1">\n<div class="seat" data-code="B15"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="B16"></div>\n</div>\n</div>\n<div class="row">\n<div class="col-1">\n<div class="seat" data-code="A17"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="A18"></div>\n</div>\n<div class="col-1">&nbsp;</div>\n<div class="col-1">\n<div class="seat" data-code="B17"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="B18"></div>\n</div>\n</div>\n<div class="row">\n<div class="col-1">\n<div class="seat" data-code="A19"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="A20"></div>\n</div>\n<div class="col-1">&nbsp;</div>\n<div class="col-1">\n<div class="seat" data-code="B19"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="B20"></div>\n</div>\n</div>\n<div class="row">\n<div class="col-1">\n<div class="seat" data-code="A21"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="A22"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="A23"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="B21"></div>\n</div>\n<div class="col-1">\n<div class="seat" data-code="B22"></div>\n</div>\n</div>\n</div>',
+        '2': '<div class="seating-chart"> <div class="row"> <div class="col-2 driver"> <div>Lái xe</div> </div> <div class="col-1">&nbsp;</div> <div class="col-2 door"> <div>Cửa lên</div> </div> </div> <div class="chart-title"> Tầng dưới </div> <div class="row"> <div class="col-1"> <div class="seat seat-2" data-code="1A">1A</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="2A">2A</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="3A">3A</div> </div> </div> <div class="row"> <div class="col-1"> <div class="seat seat-2" data-code="4A">4A</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="5A">5A</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="6A">6A</div> </div> </div> <div class="row"> <div class="col-1"> <div class="seat seat-2" data-code="7A">7A</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="8A">8A</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="9A">9A</div> </div> </div> <div class="row"> <div class="col-1"> <div class="seat seat-2" data-code="10A">10A</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="11A">11A</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="12A">12A</div> </div> </div> <div class="row"> <div class="col-1"> <div class="seat seat-2" data-code="13A">13A</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="14A">14A</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="15A">15A</div> </div> </div> <div class="row"> <div class="col-1"> <div class="seat seat-2" data-code="16A">16A</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="17A">17A</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="18A">18A</div> </div> </div> <div class="row"> <div class="col-1"> <div class="seat seat-2" data-code="19A">19A</div> </div> <div class="col-1"> <div class="seat seat-2" data-code="20A">20A</div> </div> <div class="col-1"> <div class="seat seat-2" data-code="21A">21A</div> </div> <div class="col-1"> <div class="seat seat-2" data-code="22A">22A</div> </div> <div class="col-1"> <div class="seat seat-2" data-code="23A">23A</div> </div> </div> <div class="chart-title"> Tầng trên </div> <div class="row"> <div class="col-1"> <div class="seat seat-2" data-code="1B">1B</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="2B">2B</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="3B">3B</div> </div> </div> <div class="row"> <div class="col-1"> <div class="seat seat-2" data-code="4B">4B</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="5B">5B</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="6B">6B</div> </div> </div> <div class="row"> <div class="col-1"> <div class="seat seat-2" data-code="7B">7B</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="8B">8B</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="9B">9B</div> </div> </div> <div class="row"> <div class="col-1"> <div class="seat seat-2" data-code="10B">10B</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="11B">11B</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="12B">12B</div> </div> </div> <div class="row"> <div class="col-1"> <div class="seat seat-2" data-code="13B">13B</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="14B">14B</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="15B">15B</div> </div> </div> <div class="row"> <div class="col-1"> <div class="seat seat-2" data-code="16B">16B</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="17B">17B</div> </div> <div class="col-1">&nbsp;</div> <div class="col-1"> <div class="seat seat-2" data-code="18B">18B</div> </div> </div> <div class="row"> <div class="col-1"> <div class="seat seat-2" data-code="19B">19B</div> </div> <div class="col-1"> <div class="seat seat-2" data-code="20B">20B</div> </div> <div class="col-1"> <div class="seat seat-2" data-code="21B">21B</div> </div> <div class="col-1"> <div class="seat seat-2" data-code="22B">22B</div> </div> <div class="col-1"> <div class="seat seat-2" data-code="23B">23B</div> </div> </div> </div>',
+        '3': '<div class="seating-chart">\n<div class="row">\n<div class="col-2 driver">\n<div>Lái xe</div>\n</div>\n<div class="col-1">&nbsp;</div>\n<div class="col-2 door">\n<div>Cửa lên</div>\n</div>\n</div>\n<div class="row">\n<div class="col-3">\n<div class="seat seat-2" data-code="1"></div>\n</div>\n<div class="col-3">\n<div class="seat seat-2" data-code="2"></div>\n</div>\n<div class="col-3">&nbsp;</div>\n<div class="col-3">\n<div class="seat seat-2" data-code="3"></div>\n</div>\n</div>\n<div class="row">\n<div class="col-3">\n<div class="seat seat-2" data-code="4"></div>\n</div>\n<div class="col-3">\n<div class="seat seat-2" data-code="5"></div>\n</div>\n<div class="col-3">&nbsp;</div>\n<div class="col-3">\n<div class="seat seat-2" data-code="6"></div>\n</div>\n</div>\n<div class="row">\n<div class="col-3">\n<div class="seat seat-2" data-code="7"></div>\n</div>\n<div class="col-3">\n<div class="seat seat-2" data-code="8"></div>\n</div>\n<div class="col-3">&nbsp;</div>\n<div class="col-3">\n<div class="seat seat-2" data-code="9"></div>\n</div>\n</div>\n<div class="row">\n<div class="col-3">\n<div class="seat seat-2" data-code="10"></div>\n</div>\n<div class="col-3">\n<div class="seat seat-2" data-code="11"></div>\n</div>\n<div class="col-3">&nbsp;</div>\n<div class="col-3">\n<div class="seat seat-2" data-code="12"></div>\n</div>\n</div>\n<div class="row">\n<div class="col-3">\n<div class="seat seat-2" data-code="13"></div>\n</div>\n<div class="col-3">\n<div class="seat seat-2" data-code="14"></div>\n</div>\n<div class="col-3">&nbsp;</div>\n<div class="col-3">\n<div class="seat seat-2" data-code="15"></div>\n</div>\n</div>\n<div class="row">\n<div class="col-3">\n<div class="seat seat-2" data-code="16"></div>\n</div>\n<div class="col-3">\n<div class="seat seat-2" data-code="17"></div>\n</div>\n<div class="col-3">&nbsp;</div>\n<div class="col-3">\n<div class="seat seat-2" data-code="18"></div>\n</div>\n</div>\n<div class="row">\n<div class="col-3">\n<div class="seat seat-2" data-code="19"></div>\n</div>\n<div class="col-3">\n<div class="seat seat-2" data-code="20"></div>\n</div>\n<div class="col-3">&nbsp;</div>\n<div class="col-3">\n<div class="seat seat-2" data-code="21"></div>\n</div>\n</div>\n<div class="row">\n<div class="col-3">\n<div class="seat seat-2" data-code="22"></div>\n</div>\n<div class="col-3">\n<div class="seat seat-2" data-code="23"></div>\n</div>\n<div class="col-3">&nbsp;</div>\n<div class="col-3">\n<div class="seat seat-2" data-code="24"></div>\n</div>\n</div>\n<div class="row">\n<div class="col-3">\n<div class="seat seat-2" data-code="25"></div>\n</div>\n<div class="col-3">\n<div class="seat seat-2" data-code="26"></div>\n</div>\n<div class="col-3">\n<div class="seat seat-2" data-code="27"></div>\n</div>\n<div class="col-3">\n<div class="seat seat-2" data-code="28"></div>\n</div>\n</div>\n</div>'
+    },
+    GetLoaiXe: function (idloai) {
+        switch (idloai) {
+            case 1: return 'Ghế ngồi';
+            case 2: return 'Giường nằm';
+            case 3: return 'Ghế nằm';
+        }
+    },
+    GetChuyenXe: function (NgayKH, DiemDi, DiemDen) {
+        if (Booking.isLoading)
+            return;
+        Booking.isLoading = true;
+        $('.btn-step[data-step=3]').addClass('disabled').blur();
+
+        var data = {
+            ngaykh: NgayKH,
+            diemdi: DiemDi,
+            diemden: DiemDen
+        };
+        $.ajax({
+            url: '/api/GetChuyenXe',
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'JSON',
+            type: "POST",
+            success: function (res) {
+                if (res.stat && res.stat == 'scc') {
+                    $(Booking.idCb).empty();
+                    $(Booking.idCbtram).empty();
+                    if (res.data.length == 0) {
+                        ChangeStep(1);
+                        alert('Không có chuyến cho ngày này, vui lòng chọn ngày khác.');
+                        return false;
+                    }
+
+                    var empoption = $('<option value="" data-code="" data-loaixe="" data-gio="" data-phut="" data-giave="" data-idtx="" data-thanhtoan="">'
+                        + '--- Vui lòng chọn chuyến xe ---</option>');
+                    $(Booking.idCb).append(empoption);
+
+                    for (var i = 0; i < res.data.length; i++) {
+                        var d = res.data[i];
+                        var option = $('<option value="' + d.idcx + '" data-code="' + d.code + '" data-loaixe="' + d.loaixe + '" data-gio="' + d.gio + '" data-phut="' + d.phut + '" data-giave="' + d.giave + '" data-idtx="' + d.idtuyen + '" data-thanhtoan="' + d.thanhtoan + '">'
+                            + d.tentuyen + ' (' + d.gio + ':' + (d.phut < 10 ? '0' : '') + d.phut + ' - ' + Booking.GetLoaiXe(d.loaixe) + ')</option>');
+                        $(Booking.idCb).append(option);
+                    }
+
+                    for (var i = 0; i < res.tram.length; i++) {
+                        var d = res.tram[i];
+                        var option = $('<option value="' + d.idtram + '" >' + d.tentram + '</option>');
+                        if (DiemDi == d.loc) {
+                            $(Booking.idCbtram).append(option);
+                        }
+                        else {
+                            $(Booking.idCbtramxuong).append(option);
+                        }
+                    }
+                    var idCX = $(Booking.idCb).val();
+                    if (idCX != null)
+                        Booking.GetGheTrong(idCX);
+                    Booking.guid = res.guid;
+                    $('#Txt_VCode').css('background-image', 'url(/VImage.ashx?h=28&w=180&g=' + encodeURIComponent(res.guid) + '&t=' + new Date().getTime() + ')');
+                    //$('#Txt_VCode').css('background-image', 'url(/VImage.ashx?h=28&w=180&c=' + encodeURIComponent(res.data[0].code) + ')');
+                    UpdateLabel();
+                    ChangeStep(3);
+                }
+                else if (res.stat == 'error') {
+                    alert(res.msg);
+                }
+            },
+            complete: function (res) {
+                Booking.isLoading = false;
+                $('.btn-step[data-step=3]').removeClass('disabled');
+            }
+        });
+    },
+    GetNgay: function (DiemDi, DiemDen) {
+        var data = {
+            diemdi: DiemDi,
+            diemden: DiemDen
+        };
+        return $.ajax({
+            url: '/api/GetNgay',
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'JSON',
+            type: "POST"
+        });
+    },
+    DatGhe: function () {
+        if (Booking.isLoading)
+            return;
+        Booking.isLoading = true;
+
+        $('#Bt_DatGhe').addClass('disabled').blur();
+
+        var dataCX = $('#Cb_ChuyenXe option:selected').data();
+        var tenkh = [$('#Txt_Name').val().trim()];
+        var namsinh = [$('#Txt_NamSinh').val().trim()];
+
+        for (var i = 1; i < Booking.SoLuongVe; i++) {
+            tenkh.push($('#Txt_Name' + i).val());
+            namsinh.push($('#Txt_NamSinh' + i).val());
+        }
+
+
+        var data = {
+            idcx: $('#Cb_ChuyenXe').val(),
+            tram: $('#Cb_Tram').val(),
+            tramxuong: -1,
+            diemden: $('#Cb_To').val(),
+            tenkh: tenkh,
+            namsinh: namsinh,
+            sdt: $('#Txt_SDT').val().trim(),
+            email: $('#Txt_Email').val().trim(),
+            cmnd: '',//$('#Txt_CMND').val().trim(),
+            msghe: $('#Lb_SoGhe').text(),
+            thoigian: $('#Txt_Date').val() + ' ' + dataCX.gio + ':' + (dataCX.phut < 10 ? '0' : '') + dataCX.phut,
+            diemlen: $('#Lb_DiemLen').text(),
+            chuyenxe: $('#Lb_ChuyenXe').text(),
+            yeucau: $('#Txt_Note').val(),
+            vcode: $('#Txt_VCode').val(),
+            dondocduong: -1,
+            sonhalen: '',
+            idduonglen: -1,
+            sonhaxuong: '',
+            idduongxuong: -1,
+            guid: Booking.guid,
+            code: dataCX.code
+        };
+
+        var hinhthuclen = $('input[name=HinhThuc]:checked').val();
+        var hinhthucxuong = $('input[name=HinhThucXuong]:checked').val();
+
+        if (hinhthuclen == '1') {
+            data.dondocduong = $('#Cb_DonDocDuong').val();
+        }
+        else if (hinhthuclen == '2') {
+            data.sonhalen = $('#Txt_SoNha').val();
+            data.idduonglen = $('#Cb_TenDuong').val();
+        }
+
+        if (hinhthucxuong == '0') {
+            data.tramxuong = $('#Cb_TramXuong').val()
+        } else if (hinhthucxuong == '2') {
+            data.sonhaxuong = $('#Txt_SoNha_Xuong').val();
+            data.idduongxuong = $('#Cb_TenDuong_Xuong').val();
+        }else if (hinhthucxuong == '3') {
+            data.dendocduong = $('#Cb_NoiXuong').val();
+        }
+
+        $.ajax({
+            url: '/api/DatGhe',
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'JSON',
+            type: "POST",
+            success: function (res) {
+                if (res.stat && res.stat == 'scc') {
+                    if (res.data[0] == 1) {
+                        $('#Lb_ThanhToan').text(Booking.addCommas(Booking.SoLuongVe * res.data[1]) + ' VNĐ');
+                        if (res.data[5]) {
+
+                            var min = 5;
+                            if (res.data.length > 6 && res.data[6]) {
+                                min = parseInt(res.data[6])
+                            }
+                            StartClock(min);
+                            $('#div_tt1').hide();
+                            $('#div_tt2').show();
+                            $('.count-down-clock').show();
+                        }
+                        else {
+                            $('#div_tt1').show();
+                            $('#div_tt2').hide();
+                            $('.count-down-clock').hide();
+                        }
+                        ChangeStep(4);
+                        $('#Bt_Pay, #lnk_Pay').prop('href', 'Redirect.aspx?i=' + res.madatghe + '&c=' + res.madatve);
+                        $('#Bt_PayInt, #lnk_PayInt').prop('href', 'Redirect.aspx?i=' + res.madatghe + '&c=' + res.madatve);
+                        $('#Bt_Pay, #Bt_PayInt, #lnk_Pay, #lnk_PayInt').click(function (e) {
+                            if ($('#Bt_Pay, #Bt_PayInt, #lnk_Pay, #lnk_PayInt').data('clicked')) {
+                                e.preventDefault();
+                            }
+                            $('#Bt_Pay, #Bt_PayInt, #lnk_Pay, #lnk_PayInt').addClass('disabled');
+                            $('#Bt_Pay, #Bt_PayInt, #lnk_Pay, #lnk_PayInt').data('clicked', true);
+                        });
+                    }
+                    else {
+                        alert('Ghế đã có khách, vui lòng chọn ghế hoặc chuyến khác.');
+                    }
+                }
+                else if (res.stat == 'error') {
+                    alert(res.msg);
+                }
+            },
+            complete: function (res) {
+                $('#Bt_DatGhe').removeClass('disabled');
+                $('#Txt_VCode').css('background-image', 'url(/VImage.ashx?h=28&w=180&g=' + encodeURIComponent(Booking.guid) + '&t=' + new Date().getTime() + ')');
+                Booking.isLoading = false;
+            }
+        });
+    },
+    GetGheTrong: function (idcx) {
+        var loaixe = $(Booking.idCb + ' option:selected').data('loaixe');
+        $('#div_chart').html(Booking.SoDoXe[loaixe]);
+        $('#div_chart .seat').addClass('unavail');
+        $.ajax({
+            url: '/api/GetGheTrong/' + idcx,
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'JSON',
+            type: "GET",
+            success: function (res) {
+                if (res.stat && res.stat == 'scc') {
+                    var selected = 0;
+                    $('#div_chart .seat[data-code]').html('&nbsp;');
+                    for (var i = 0; i < res.data.length; i++) {
+                        $('#div_chart .seat[data-code=' + res.data[i] + ']').text(res.data[i]).removeClass('unavail');
+                        //if (selected < Booking.SoLuongVe) {
+                        //    selected++;
+                        //    $('#div_chart .seat[data-code=' + res.data[i] + ']').addClass('selected');
+                        //}
+                    }
+                    UpdateSoGhe();
+                }
+            }
+        });
+    },
+    addCommas: function (nStr) {
+        nStr += '';
+        x = nStr.split('.');
+        x1 = x[0];
+        x2 = x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+            x1 = x1.replace(rgx, '$1' + ',' + '$2');
+        }
+        return x1 + x2;
+    }
+};
+
+var SaveCookies = function (data) {
+    var newData = $.extend(LoadCookies(), data);
+    Cookies.set('_userdata', JSON.stringify(newData), { expires: 30 });
+}
+
+var LoadCookies = function () {
+    var cookies = Cookies.get('_userdata');
+    if (!cookies) {
+        return {};
+    }
+    return JSON.parse(cookies);
+}
+
+var ChangeStep = function (step) {
+    $('.book-steps li').removeClass('active');
+    $('.book-steps li[data-step=' + step + ']').addClass('active');
+    $('.book-step').hide();
+    $('.book-step[data-step=' + step + ']').show();
+    if (step == 2) {
+        var slve = parseInt($('#Txt_Num').val());
+        var divparent = $('#Div_Customers');
+        if (slve == 1)
+            divparent.empty();
+        else {
+            $('#Div_Customers .row:gt(' + (slve - 2) + ')').remove();
+            if (slve > 1 && $('#Div_Customers .row').length < slve - 1) {
+                for (var i = $('#Div_Customers .row').length + 1; i < slve; i++) {
+                    var row = $('<div class="row">');
+                    row.append('<div class="col-md-3 form-group"><label for="Txt_Name' + i + '">Họ tên người thứ ' + (i + 1) + ' *</label><div><input type="text" class="form-control required" placeholder="vd: Trần Văn B" id="Txt_Name' + i + '" /></div></div>'
+                        + '<div class="col-md-3 form-group"><label for="Txt_NamSinh' + i + '">Năm sinh người thứ ' + (i + 1) + '  *</label><div><input type="text" class="form-control required" placeholder="vd: 1990" id="Txt_NamSinh' + i + '" /></div></div>');
+                    divparent.append(row);
+                }
+            }
+        }
+    }
+
+};
+
+var UpdateLabel = function () {
+    var hinhthuclen = $('input[name=HinhThuc]:checked').val();
+    if (hinhthuclen == '0') {
+        $('#Lb_DiemLen').text($('#Cb_Tram option:selected').text() + ' - ' + $('#Cb_From option:selected').text());
+    }
+    else if (hinhthuclen == '1') {
+        $('#Lb_DiemLen').text($('#Cb_DonDocDuong').select2('data')[0].name);
+    }
+    else if (hinhthuclen == '2') {
+        var sonha = $('#Txt_SoNha').val();
+        if (sonha) {
+            sonha += ' - ';
+        }
+        $('#Lb_DiemLen').text(sonha + $('#Cb_TenDuong').select2('data')[0].name);
+    }
+
+    var dataCX = $('#Cb_ChuyenXe option:selected').data();
+    if (!dataCX) {
+        return;
+    }
+    var tencx = $('#Cb_ChuyenXe option:selected').text();
+    var diemdau = tencx.split('-')[0].trim();
+    $('#Lb_ChuyenXe').text(tencx);
+    $('#Lb_ThoiGian').text(dataCX.gio + ':' + (dataCX.phut < 10 ? '0' : '') + dataCX.phut + ' ngày ' + $('#Txt_Date').val()
+        + ' (Giờ khởi hành là giờ tính từ ' + diemdau + ')');
+    $('#Lb_SoGhe').text('');
+    var total = dataCX.giave * Booking.SoLuongVe;
+    $('#Lb_GiaVe').text(Booking.addCommas(total));
+};
+
+var UpdateSoGhe = function () {
+    var selectedSeats = '';
+
+    $('#div_chart .seat.selected').each(function () {
+        var data = $(this).data();
+        selectedSeats += ', ' + data.code;
+    });
+    if (selectedSeats.length > 0) {
+        selectedSeats = selectedSeats.substr(2, selectedSeats.length - 2);
+    }
+    $('#Lb_SoGhe').text(selectedSeats);
+};
+
+var _clockTimer = null;
+var _remain = -1;
+var StartClock = function (minute) {
+    if (_clockTimer) {
+        window.clearInterval(_clockTimer);
+    }
+    _remain = 60 * minute;
+    _clockTimer = window.setInterval(UpdateClock, 1000);
+}
+
+var UpdateClock = function () {
+    if (_remain && _remain > 0) {
+        var minute = Math.floor(_remain / 60), second = _remain % 60;
+        if (minute < 10) minute = '0' + minute;
+        if (second < 10) second = '0' + second;
+
+        $('.count-down-clock > span').text(minute + ':' + second);
+        _remain--;
+    }
+    else {
+        $('.count-down-clock > span').text('00:00');
+        $('.count-down-clock').addClass('timeout');
+        window.clearInterval(_clockTimer);
+    }
+}
+
+var emailReg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
+
+$(function () {
+    var validateStep = function (step) {
+        var req = false;
+        $('.required:visible').each(function () {
+            if ($(this).val().trim() == '') {
+                alert('Vui lòng điền đầy đủ thông tin.');
+                req = true;
+                return false;
+            }
+        });
+        if (req)
+            return false;
+
+        if (step == 2) {
+
+            var ngaykh = $('#Txt_Date').val();
+            var diemdi = $('#Cb_From').val();
+            var diemden = $('#Cb_To').val();
+            var slve = $('#Txt_Num').val();
+            if (ngaykh == '') {
+                alert('Vui lòng chọn ngày khởi hành.');
+                return false;
+            }
+
+            if (slve == '' || isNaN(parseInt(slve))) {
+                alert('Số lượng vé không hợp lệ.');
+                return false;
+            } else {
+
+            }
+
+            if (!diemden) {
+                alert('Vui lòng chọn nơi đến.');
+                return false;
+            }
+
+            if (diemden == diemdi) {
+                alert('Nơi đi và nơi đến phải khác nhau.');
+                return false;
+            }
+            var tendiemdi = $('#Cb_From option:selected').text();
+            $('#lb_lentaitram').text('Tự ra trạm ' + tendiemdi);
+            $('#lb_lendocduong').text('Thuộc lộ trình xe chạy');
+            SaveCookies({ diemdi: diemdi, diemden: diemden });
+            //$('#lb_lendocduong').text('Thuộc lộ trình xe chạy' + tendiemdi);
+        }
+
+        if (step == 3) {
+
+            if ($('#Txt_Name').val().trim() == ''// || $('#Txt_CMND').val().trim() == ''
+                || $('#Txt_Email').val().trim() == '' || $('#Txt_SDT').val().trim() == '') {
+                alert('Vui lòng điền đầy đủ thông tin.');
+                return false;
+            }
+
+            if (!/[\d \.]{7,13}/.test($('#Txt_SDT').val().trim())) {
+                alert('Số điện thoại không hợp lệ.');
+                return false;
+            }
+
+            if (!emailReg.test($('#Txt_Email').val().trim())) {
+                alert('Email không hợp lệ.');
+                return false;
+            }
+
+            if (!$('#Ck_DK').is(':checked')) {
+                alert('Vui lòng chấp nhận điều khoản.');
+                return false;
+            }
+
+            var ngaykh = $('#Txt_Date').val();
+            var diemdi = $('#Cb_From').val();
+            var diemden = $('#Cb_To').val();
+            var str = 'Từ ' + $('#Cb_From option:selected').html()
+                + ' đến ' + $('#Cb_To').select2('data')[0].name
+                + ' ngày ' + ngaykh;
+            var ten = $('#Txt_Name').val().trim(), sdt = $('#Txt_SDT').val().trim(),
+                email = $('#Txt_Email').val().trim(), namsinh = $('#Txt_NamSinh').val().trim();
+            $('#sp_Title').html(str);
+            $('#Lb_HoTen').text(ten);
+            //$('#Lb_CMND').text($('#Txt_CMND').val().trim());
+            $('#Lb_SDT').text(sdt);
+
+            SaveCookies({ hoten: ten, sdt: sdt, email: email, namsinh: namsinh });
+
+            var dontannha = $('#Cb_From option:selected').data('dontannha');
+            var toData = $('#Cb_To option:selected').data();
+            var xuongtannha = toData && toData.data && toData.data.dontannha;
+            var xuongdocduong = toData && toData.data && toData.data.xuongdocduong;
+            if (dontannha == '1') {
+                $('input[name="HinhThuc"][value="2"]').parent('label').show();
+            }
+            else {
+                $('input[name="HinhThuc"][value="2"]').parent('label').hide();
+            }
+
+            if (xuongtannha == '1') {
+                $('input[name="HinhThucXuong"][value="2"]').parent('label').show();
+            }
+            else {
+                $('input[name="HinhThucXuong"][value="2"]').parent('label').hide();
+            }
+
+            if (xuongdocduong == '1') {
+                $('input[name="HinhThucXuong"][value="3"]').parent('label').show();
+                $.ajax({
+                    url: '/api/getdiemxuong/' + toData.data.id
+                }).done(function (res) {
+                    if (res && res.stat == 'scc') {
+                        $('#Cb_NoiXuong option').remove();
+                        $.each(res.data, function () {
+                            var opt = $('<option />');
+                            opt.val(this.name).text(this.name);
+                            $('#Cb_NoiXuong').append(opt);
+                        });
+                    }
+                });
+            }
+            else {
+                $('input[name="HinhThucXuong"][value="3"]').parent('label').hide();
+            }
+
+            $('input[name="HinhThuc"][value="0"]').prop('checked', true).trigger('click');
+            $('input[name="HinhThucXuong"][value="0"]').prop('checked', true).trigger('click');
+            $('#Div_XuongTanNha, #Div_DonTanNha, #Div_DonDocDuong').hide();
+            $("#Cb_DonDocDuong").select2("val", "");
+            Booking.SoLuongVe = parseInt($('#Txt_Num').val());
+            Booking.GetChuyenXe(ngaykh, diemdi, diemden);
+        }
+        if (step == 4) {
+
+            var slVe = $('#div_chart .seat.selected').length;
+            if (slVe != Booking.SoLuongVe) {
+                alert('Vui lòng chọn đủ ghế.');
+                return false;
+            }
+
+            var expAddr = /^[\d\w\/-\s]*$/;
+            var hinhthuclen = $('input[name=HinhThuc]:checked').val();
+            var hinhthucxuong = $('input[name=HinhThucXuong]:checked').val();
+            if (hinhthuclen == '1' && !$('#Cb_DonDocDuong').val()) {
+                alert('Vui lòng chọn điểm lên xe.');
+                return false;
+            }
+            else if (hinhthuclen == '2') {
+                if (!$('#Cb_TenDuong').val()) {
+                    alert('Vui lòng chọn đường đón.');
+                    return false;
+                }
+
+                if (!expAddr.exec($('#Txt_SoNha').val())) {
+                    alert('Số nhà không hợp lệ.');
+                    return false;
+                }
+            }
+
+            if (hinhthucxuong == '2') {
+                if (!$('#Cb_TenDuong_Xuong').val()) {
+                    alert('Vui lòng chọn đường xuống.');
+                    return false;
+                }
+
+                if (!expAddr.exec($('#Txt_SoNha_Xuong').val())) {
+                    alert('Số nhà không hợp lệ.');
+                    return false;
+                }
+            }
+
+            $('#frm_Last').html($('#frm_Info').html());
+            Booking.DatGhe();
+        }
+        return true;
+    }
+
+    $('#Ck_DK').click(function () {
+        var ck = $(this).is(':checked');
+        var bt = $('.btn-step[data-step="3"]');
+        if (ck) {
+            bt.removeClass('disabled');
+        }
+        else {
+            bt.addClass('disabled');
+        }
+    });
+
+    $('.select2').next('.input-group-addon').click(function () {
+        $(this).prevAll('select.select2').select2('open');
+    });
+
+    $('.select2').select2({
+        theme: 'bootstrap',
+        placeholder: 'Chọn địa điểm'
+    });
+
+    $("#Cb_To").select2({
+        placeholder: 'Chọn điểm đón',
+        language: 'vi',
+        ajax: {
+            url: "/api/GetChuyenXe",
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            type: "GET",
+            delay: 250,
+            data: function (params) {
+                var data = {
+                    q: params.term, // search term
+                    loc: $('#Cb_From').val()
+                };
+                return data;
+            },
+            processResults: function (data, page) {
+                return {
+                    results: data.data
+                };
+            },
+            cache: true
+        },
+        escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+        minimumInputLength: 0,
+        templateResult: function (item) {
+            if (item.loading) return item.text;
+            return '<div>' + item.name + '</div>';
+        }, // omitted for brevity, see the source of this page
+        templateSelection: function (item) {
+            return item.name;
+        } // omitted for brevity, see the source of this page
+    });
+
+    $("#Cb_DonDocDuong").select2({
+        placeholder: 'Click để chọn điểm đón',
+        language: 'vi',
+        ajax: {
+            url: "/api/SearchDiemDon",
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            type: "POST",
+            delay: 250,
+            data: function (params) {
+                var data = {
+                    q: params.term, // search term
+                    page: params.page,
+                    loc: $('#Cb_From').val(),
+                    idtx: $('#Cb_ChuyenXe option:selected').data('idtx')
+                };
+                return JSON.stringify(data);
+            },
+            processResults: function (data, page) {
+                return {
+                    results: data.data
+                };
+            },
+            initSelection: function (element, callback) {
+            },
+            cache: true
+        },
+        escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+        minimumInputLength: 0,
+        templateResult: function (item) {
+            if (item.loading) return item.text;
+            return '<div>' + item.name + '</div>';
+        }, // omitted for brevity, see the source of this page
+        templateSelection: function (item) {
+            return item.name || item.text;
+        } // omitted for brevity, see the source of this page
+    });
+
+    $("#Cb_TenDuong").select2({
+        placeholder: 'Click để chọn đường',
+        language: 'vi',
+        ajax: {
+            url: "/api/SearchTenDuong",
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            type: "POST",
+            delay: 250,
+            data: function (params) {
+                var data = {
+                    q: params.term, // search term
+                    page: params.page,
+                    loc: $('#Cb_From').val()
+                };
+                return JSON.stringify(data);
+            },
+            processResults: function (data, page) {
+                return {
+                    results: data.data
+                };
+            },
+            cache: true
+        },
+        escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+        minimumInputLength: 0,
+        templateResult: function (item) {
+            if (item.loading) return item.text;
+            return '<div>' + item.name + '</div>';
+        }, // omitted for brevity, see the source of this page
+        templateSelection: function (item) {
+            return item.name || item.text;
+        } // omitted for brevity, see the source of this page
+    });
+
+    $("#Cb_TenDuong_Xuong").select2({
+        placeholder: 'Click để chọn đường',
+        language: 'vi',
+        ajax: {
+            url: "/api/SearchTenDuong",
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            type: "POST",
+            delay: 250,
+            data: function (params) {
+                var data = {
+                    q: params.term,
+                    page: params.page,
+                    loc: $('#Cb_To').val()
+                };
+                return JSON.stringify(data);
+            },
+            processResults: function (data, page) {
+                return {
+                    results: data.data
+                };
+            },
+            cache: true
+        },
+        escapeMarkup: function (markup) { return markup; },
+        minimumInputLength: 0,
+        templateResult: function (item) {
+            if (item.loading) return item.text;
+            return '<div>' + item.name + '</div>';
+        },
+        templateSelection: function (item) {
+            return item.name || item.text;
+        }
+    });
+
+    $('.datepicker').datepicker({
+        format: 'dd/mm/yyyy',
+        startDate: '0d',
+        autoclose: true
+    });
+
+    $('.datepicker').next('.input-group-addon').click(function () {
+        $(this).prevAll('.datepicker').datepicker('show');
+    });
+    $('.book-steps [data-step]').click(function () { return false; });
+    $('.btn-step').click(function () {
+        var step = $(this).data('step');
+        if ($(this).data('validate') != '0' && !validateStep(step))
+            return false;
+        if (step < 3)
+            ChangeStep(step);
+        return false;
+    });
+
+    $('#div_chart').on('click', '.seat', function () {
+        if ($(this).hasClass('unavail')) return false;
+
+        if ($(this).hasClass('selected')) {
+            $(this).removeClass('selected');
+        }
+        else {
+            var slVe = $('#div_chart .seat.selected').length;
+            if (slVe >= Booking.SoLuongVe) {
+                return false;
+            }
+
+            $(this).addClass('selected');
+        }
+        UpdateSoGhe();
+    });
+    $('#div_Dates').on('click', 'a', function () {
+        $('#Txt_Date').val($(this).data('date'));
+        var step = 2;
+        if (!validateStep(step))
+            return false;
+        ChangeStep(step);
+        return false;
+    });
+    $('#btn_Clear').click(function () {
+
+        $('#Txt_Name').val('');
+        $('#Txt_NamSinh').val('');
+        $('#Txt_SDT').val('');
+        $('#Txt_Email').val('');
+        SaveCookies({
+            hoten: '',
+            namsinh: '',
+            sdt: '',
+            email: ''
+        });
+    });
+
+});
+$('#Cb_ChuyenXe').change(function () {
+    var idCX = $(Booking.idCb).val();
+    if (idCX != null)
+        Booking.GetGheTrong(idCX);
+});
+
+$('#Cb_ChuyenXe, #Cb_Tram, #Cb_DonDocDuong, #Cb_TenDuong, #Txt_SoNha').change(function () {
+    UpdateLabel();
+    UpdateSoGhe();
+});
+
+$('input[name=HinhThuc]').click(function () {
+    var hinhthuc = $('input[name=HinhThuc]:checked').val();
+    if (hinhthuc == '0') {
+        $('#Div_DonTaiTram').show();
+        $('#Div_DonDocDuong').hide();
+        $('#Div_DonTanNha').hide();
+    }
+    else if (hinhthuc == '1') {
+        $('#Div_DonTaiTram').hide();
+        $('#Div_DonDocDuong').show();
+        $('#Div_DonTanNha').hide();
+    }
+    else if (hinhthuc == '2') {
+        $('#Div_DonTaiTram').hide();
+        $('#Div_DonDocDuong').hide();
+        $('#Div_DonTanNha').show();
+    }
+});
+
+$('input[name=HinhThucXuong]').click(function () {
+    var hinhthuc = $('input[name=HinhThucXuong]:checked').val();
+    $('#Div_XuongTanNha').hide();
+    $('#Div_XuongTaiTram').hide();
+    $('#Div_XuongDocDuong').hide();
+    if (hinhthuc == '0') {
+        $('#Div_XuongTaiTram').show();
+    }
+    else if (hinhthuc == '2') {
+        $('#Div_XuongTanNha').show();
+    }
+    else if (hinhthuc == '3') {
+        $('#Div_XuongDocDuong').show();
+    }
+});
+
+
+$('#Cb_From').change(function () {
+    $("#Cb_To").select2("val", "");
+});
+
+$('#Cb_To').change(function () {
+    var from = $('#Cb_From').val(), to = $('#Cb_To').val();
+    $('#div_Dates').empty();
+    if (!from || !to) {
+        return;
+    }
+    $('#div_Date_Title').text('Loading...');
+
+    Booking.GetNgay(from, to).success(function (res) {
+        if (res && res.stat == 'scc') {
+            if (res.data.length == 0) {
+                $('#div_Date_Title').text('Tuyến này chưa có ghế đặt online.');
+                return;
+            }
+            $('#div_Date_Title').text('Vui lòng chọn ngày khởi hành.');
+            $.each(res.data, function () {
+                var link = $('<a href="#" />');
+                link.text(this.ngaykh);
+                link.prop('title', this.ngaykh);
+
+                link.data('date', this.ngaykh);
+                $('#div_Dates').append(link);
+            })
+        }
+    })
+});
+
+$(function () {
+    var cookies = LoadCookies();
+    if (cookies.diemdi) {
+        $('#Cb_From').val(cookies.diemdi);
+        $('#Cb_From').trigger('change');
+    }
+    //if (cookies.diemden) {
+    //    //$('#Cb_To').val(cookies.diemden);
+
+    //    var $select = $('#Cb_To');
+
+    //    var $option = $('<option>Loading...</option>').val(cookies.diemden);
+
+    //    $select.append($option);//.trigger('change'); // append the option and update Select2
+    //    $.ajax({ // make the request for the selected data object
+    //        type: 'GET',
+    //        url: '/api/GetChuyenXe/' + cookies.diemden,
+    //        dataType: 'json'
+    //    }).then(function (data) {
+    //        if (data.stat = 'scc' && data.data.length) {
+
+    //            $option.text(data.data[0].name).val(data.data[0].id); // update the text that is displayed (and maybe even the value)
+    //            $select.select2({ data: data.data });
+    //            console.log('init', $option);
+    //            $option.removeData(); // remove any caching data that might be associated
+    //            $select.trigger('change'); // notify JavaScript components of possible changes
+    //        }
+    //    });
+
+    //}
+    if (cookies.hoten) {
+        $('#Txt_Name').val(cookies.hoten);
+    }
+    if (cookies.namsinh) {
+        $('#Txt_NamSinh').val(cookies.namsinh);
+    }
+    if (cookies.sdt) {
+        $('#Txt_SDT').val(cookies.sdt);
+    }
+    if (cookies.email) {
+        $('#Txt_Email').val(cookies.email);
+    }
+})

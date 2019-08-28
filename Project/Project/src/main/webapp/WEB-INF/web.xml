@@ -1,0 +1,107 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<display-name>Archetype Created Web Application</display-name>
+
+	
+	
+	
+	<servlet>
+		<servlet-name>LoginController</servlet-name>
+		<display-name>LoginController</display-name>
+		<description></description>
+		<servlet-class>edu.fa.controller.LoginController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>RegisterController</servlet-name>
+		<display-name>RegisterController</display-name>
+		<description></description>
+		<servlet-class>edu.fa.controller.RegisterController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ChangeInfoController</servlet-name>
+		<display-name>ChangeInfoController</display-name>
+		<description></description>
+		<servlet-class>edu.fa.controller.ChangeInfoController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>BookingTicketsController</servlet-name>
+		<display-name>BookingTicketsController</display-name>
+		<description></description>
+		<servlet-class>edu.fa.controller.BookingTicketsController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LoadPlaceController</servlet-name>
+		<display-name>LoadPlaceController</display-name>
+		<description></description>
+		<servlet-class>edu.fa.controller.LoadPlaceController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>GetTimeByPlaceDateAmount</servlet-name>
+		<display-name>GetTimeByPlaceDateAmount</display-name>
+		<description></description>
+		<servlet-class>edu.fa.controller.GetTimeByPlaceDateAmount</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>GetBookedSeatsByPlaceTimeDate</servlet-name>
+		<display-name>GetBookedSeatsByPlaceTimeDate</display-name>
+		<description></description>
+		<servlet-class>edu.fa.controller.GetBookedSeatsByPlaceTimeDate</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>BookingManagementController</servlet-name>
+		<display-name>BookingManagementController</display-name>
+		<description></description>
+		<servlet-class>edu.fa.controller.BookingManagementController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AdminManagementController</servlet-name>
+		<display-name>AdminManagementController</display-name>
+		<description></description>
+		<servlet-class>edu.fa.controller.AdminManagementController</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>LoginController</servlet-name>
+		<url-pattern>/LoginController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RegisterController</servlet-name>
+		<url-pattern>/RegisterController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ChangeInfoController</servlet-name>
+		<url-pattern>/ChangeInfoController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BookingTicketsController</servlet-name>
+		<url-pattern>/BookingTicketsController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoadPlaceController</servlet-name>
+		<url-pattern>/LoadPlaceController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetTimeByPlaceDateAmount</servlet-name>
+		<url-pattern>/GetTimeByPlaceDateAmount</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetBookedSeatsByPlaceTimeDate</servlet-name>
+		<url-pattern>/GetBookedSeatsByPlaceTimeDate</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BookingManagementController</servlet-name>
+		<url-pattern>/BookingManagementController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminManagementController</servlet-name>
+		<url-pattern>/AdminManagementController</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>HomePage.jsp</welcome-file>
+	</welcome-file-list>
+
+</web-app>
